@@ -1,0 +1,387 @@
+/*
+Theme name: thème du TD
+Author: CEFII
+Author URI: https://www.defii.fr
+Description: Thème pour Wordpress avec menu déroulant, 2 zones de widgets (une à droite et une en bas).
+Verseion: 1.0
+*/
+
+/* Styles généraux */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+    font-variant: small-caps;
+}
+
+a {
+    color: white;
+}
+
+#wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Styles de l'en-tête */
+
+header {
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-bottom: .5em;
+    padding: .5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+header a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 50%;
+}
+
+#recherche input {
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 2em;
+    border: none;
+}
+
+#recherche {
+    display: none;
+}
+
+#recherche input:first-of-type {
+    color: #ccc;
+}
+
+#searchform label {
+    display: none;
+}
+
+/* Styles du menu principal */
+
+nav#menuPrincipal {
+    margin-bottom: 1em;
+    padding-left: .5em;
+}
+
+nav#menuPrincipal ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav#menuPrincipal ul li {
+    display: block;
+    margin-bottom: 5em;
+    position: relative;
+}
+
+nav#menuPrincipal ul li a {
+    display: block;
+    text-decoration: none;
+    background-color: #fff;
+    color: #ccc;
+    padding: .5em 1em;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Styles du sous-menu */
+
+nav#menuPrincipal ul li ul li {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid transparent;
+    padding: 0;
+}
+
+nav#menuPrincipal ul li ul li a {
+    padding: .5em 0;
+}
+
+nav#menuPrincipal ul li ul {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+nav#menuPrincipal ul li:hover>ul {
+    display: block;
+}
+
+/* Styles du contenu principal */
+
+main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.haut {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: .5em;
+    min-height: 200px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.infos {
+    font-style: italic;
+}
+
+/* Styles des widgets */
+
+#colonneDroite {
+    border: 1px solid white;
+    border-radius: 10px;
+    /* min-height: 200px; */
+    padding: .5em;
+    margin-bottom: 1em;
+}
+
+#colonneDroite div {
+    margin-bottom: 3em;
+}
+
+#colonneDroite ul {
+    list-style-type: none;
+}
+
+#bas {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: .5em;
+    margin-bottom: 1em;
+    display: flex;
+}
+
+.widget-bas {
+    margin-left: 2em;
+    min-width: 200px;
+}
+
+/* Styles du footer */
+
+footer {
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: .5em;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+/* Styles du footer */
+
+footer {
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: .5em;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+/* Styles du menu footer */
+
+nav#menuFooter {
+    margin-bottom: .5em;
+    display: flex;
+    justify-content: center;
+}
+
+nav#menuFooter ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav#menuFooter ul li {
+    display: inline-block;
+    margin-right: .5em;
+}
+
+/* Styles des informations de contact et des icônes sociales */
+
+footer div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+footer div p {
+    margin: 0;
+    width: 100%;
+}
+
+footer div .contact-info,
+footer div .social-icons {
+    width: calc(50% - 0.5em);
+    box-sizing: border-box;
+}
+
+/* Texte à gauche dans contact-info */
+
+footer div .contact-info {
+    text-align: left;
+}
+
+/* Icônes Facebook et Twitter à droite avec le texte à droite */
+
+footer div .social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: .5em;
+    text-align: right;
+}
+
+footer div .social-icons a {
+    margin-bottom: .5em;
+}
+
+footer div .social-icons a i {
+    font-size: 2em;
+}
+
+/* Styles du copyright */
+
+footer #copyright {
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+}
+
+
+.burger-icon {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.burger-icon i {
+    font-size: 24px;
+    /* taille de l'icône */
+}
+
+
+/* Icone Scroll top */
+
+.scroll-top-icon {
+    position: fixed;
+    bottom: 40px;
+    right: 21%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+/* Ajoutez ces styles pour le slideshow */
+#themeTuto-slideshow {
+    max-width: 100%;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+.themeTuto-gallery {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.themeTuto-gallery img {
+    width: 100%;
+    height: 500px;
+
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #999;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination-dot.active {
+    background-color: #333;
+}
+
+
+
+
+/* Styles pour les petits écrans */
+
+@media screen and (min-width: 48em) {
+    main {
+        flex-direction: row;
+    }
+
+    .avecAside {
+        width: 70%;
+    }
+
+    #colonneDroite {
+        width: 20%;
+    }
+
+    #recherche {
+        display: block;
+    }
+
+    nav#menuPrincipal ul li {
+        display: inline-block;
+    }
+
+    .burger-icon {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    nav#menuPrincipal ul li {
+        margin-bottom: 0.5em;
+    }
+
+    nav#menuPrincipal ul li a {
+        padding: 0.5em 1em;
+    }
+
+    .scroll-top-icon {
+        right: 85px;
+
+    }
+}
