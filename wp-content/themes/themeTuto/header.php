@@ -49,24 +49,35 @@
             wp_nav_menu(array('sort_column' => 'menu-order', 'theme_location' => 'principal'));
             ?>
         </nav>
+
+
+
+
         <!-- SLIDER -->
         <?php
-        $slides = array();
-        for ($i = 1; $i <= 3; $i++) {
-            $image_url = get_theme_mod('themeTuto_slide' . $i);
-            if ($image_url) {
-                $slides[] = $image_url;
-            }
-        }
-
-        if (is_front_page() && !empty($slides)) :
+        $slider_image_1 = get_theme_mod('themeTuto_slider1');
+        $slider_image_2 = get_theme_mod('themeTuto_slider2');
+        $slider_image_3 = get_theme_mod('themeTuto_slider3');
         ?>
-            <div id="themeTuto-slideshow" class="themeTuto-gallery">
-                <?php foreach ($slides as $slide) : ?>
-                    <img src="<?php echo esc_url($slide); ?>" alt="Slide">
-                <?php endforeach; ?>
+
+        <!-- SLIDER -->
+        <section id="slider">
+            <div class="slider-wrapper">
+                <div class="slider-slide">
+                    <img src="<?php echo esc_url($slider_image_1); ?>" alt="Slider Image 1">
+                </div>
+                <div class="slider-slide">
+                    <img src="<?php echo esc_url($slider_image_2); ?>" alt="Slider Image 2">
+                </div>
+                <div class="slider-slide">
+                    <img src="<?php echo esc_url($slider_image_3); ?>" alt="Slider Image 3">
+                </div>
             </div>
-        <?php endif; ?>
+        </section>
+
+
+
+
 
 
         <main id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

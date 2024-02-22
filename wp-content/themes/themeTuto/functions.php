@@ -12,10 +12,24 @@ function themeTuto_enqueue_scripts()
     // Enqueue theme stylesheet
     wp_enqueue_style('themeTuto-style', get_stylesheet_uri());
 
-    // Enqueue custom script
-    wp_enqueue_script('themeTuto', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), '1.0', true);
+    // Enqueue jQuery
+    wp_enqueue_script('jquery');
+
+    // Enqueue Slick Carousel script
+    wp_enqueue_script('slick-carousel', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true);
+
+    // Enqueue custom script slickInit.js avec jQuery comme dépendance
+    wp_enqueue_script(
+        'slickInit-script',
+        '/wp-content/themes/themeTuto/js/slickInit.js',
+        array('jquery', 'slick-carousel'),
+        '1.0.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'themeTuto_enqueue_scripts');
+
+
 
 
 //-----------------------
@@ -50,24 +64,53 @@ add_action('customize_register', 'mon_theme_customize_register');
 function themeTuto_customize_register($wp_customize)
 {
     // Ajouter un slider 
-    $wp_customize->add_section('themeTuto_slider', array(
-        'title' => __('Slider', 'themeTuto'),
+    $wp_customize->add_section('slider_settings', array(
+        'title' => 'Slider',
         'priority' => 120,
     ));
 
-    // Ajouter les contrôles pour les images du slideshow
-    for ($i = 1; $i <= 3; $i++) {
-        $wp_customize->add_setting('themeTuto_slide' . $i, array(
-            'default' => '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
+    // Ajout de l'option pour le slider 1
+    $wp_customize->add_setting('themeTuto_slider1', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+    ));
 
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'themeTuto_slide' . $i, array(
-            'label' => __('Slide ' . $i, 'themeTuto'),
-            'section' => 'themeTuto_slider',
-            'settings' => 'themeTuto_slide' . $i,
-        )));
-    }
+    // Ajout du contrôleur pour le slider 1
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'themeTuto_slider1', array(
+        'label' => "Slide 1",
+        'section' => 'slider_settings',
+        'settings' => 'themeTuto_slider1',
+    )));
+
+    // Ajout de l'option pour le slider 2
+    $wp_customize->add_setting('themeTuto_slider2', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+    ));
+
+    // Ajout du contrôleur pour le slider 2
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'themeTuto_slider2', array(
+        'label' => "Slide 2",
+        'section' => 'slider_settings',
+        'settings' => 'themeTuto_slider2',
+    )));
+
+    // Ajout de l'option pour le slider 3
+    $wp_customize->add_setting('themeTuto_slider3', array(
+        'default' => '',
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+    ));
+
+    // Ajout du contrôleur pour le slider 3
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'themeTuto_slider3', array(
+        'label' => "Slide 3",
+        'section' => 'slider_settings',
+        'settings' => 'themeTuto_slider3',
+    )));
+
 
     // Ajouter la section "Layout"
     $wp_customize->add_section('layout_section', array(

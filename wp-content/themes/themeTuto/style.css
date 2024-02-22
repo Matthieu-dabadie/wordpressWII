@@ -302,6 +302,12 @@ footer #copyright {
     cursor: pointer;
 }
 
+
+.scroll-top-arrow {
+    color: #000;
+}
+
+
 /* Ajoutez ces styles pour le slideshow */
 #themeTuto-slideshow {
     max-width: 100%;
