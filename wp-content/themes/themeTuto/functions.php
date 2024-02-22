@@ -18,6 +18,17 @@ function themeTuto_enqueue_scripts()
     // Enqueue Slick Carousel script
     wp_enqueue_script('slick-carousel', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true);
 
+
+    wp_enqueue_script(
+        'themeTuto-script',
+        '/wp-content/themes/themeTuto/js/script.js',
+        array('jquery'),
+        '1.0.0',
+        array(
+            'strategy'  => 'defer',
+        )
+    );
+
     // Enqueue custom script slickInit.js avec jQuery comme dépendance
     wp_enqueue_script(
         'slickInit-script',
@@ -28,8 +39,6 @@ function themeTuto_enqueue_scripts()
     );
 }
 add_action('wp_enqueue_scripts', 'themeTuto_enqueue_scripts');
-
-
 
 
 //-----------------------
@@ -73,7 +82,7 @@ function themeTuto_customize_register($wp_customize)
     $wp_customize->add_setting('themeTuto_slider1', array(
         'default' => '',
         'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+        'sanitize_callback' => 'esc_url_raw',
     ));
 
     // Ajout du contrôleur pour le slider 1
@@ -87,7 +96,7 @@ function themeTuto_customize_register($wp_customize)
     $wp_customize->add_setting('themeTuto_slider2', array(
         'default' => '',
         'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+        'sanitize_callback' => 'esc_url_raw',
     ));
 
     // Ajout du contrôleur pour le slider 2
@@ -101,7 +110,7 @@ function themeTuto_customize_register($wp_customize)
     $wp_customize->add_setting('themeTuto_slider3', array(
         'default' => '',
         'capability' => 'edit_theme_options',
-        'sanitize_callback' => 'esc_url_raw', // pour les URLs d'image
+        'sanitize_callback' => 'esc_url_raw',
     ));
 
     // Ajout du contrôleur pour le slider 3
